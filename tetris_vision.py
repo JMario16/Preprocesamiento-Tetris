@@ -145,7 +145,7 @@ cam = cv2.VideoCapture(1)
 tablero_fijo = np.zeros((20, 10), dtype=np.uint8)
 
 # Crear clase agente
-agente = AgenteTetris()
+agente = AgenteTetris(None)
 movimiento_encontrado = False
 
 frames_cayo = 0
