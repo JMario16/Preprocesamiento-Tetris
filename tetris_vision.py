@@ -181,7 +181,6 @@ while True:
     if int(np.sum(tablero_fijo)) > int(np.sum(matriz_estado)) + 10:
         tablero_fijo = np.zeros((20, 10), dtype=np.uint8)
     pieza_activa = np.logical_and(matriz_estado, np.logical_not(tablero_fijo)).astype(np.uint8)
-    print(tablero_fijo)
 
     ys, xs = np.where(pieza_activa == 1)
     
@@ -192,11 +191,8 @@ while True:
         frames_cayo += 1
     else:
         frames_cayo = 0
-    # Condición para fijar: 
-    # 1. Lleva 5 frames tocando el fondo sin moverse (superó un posible deslizamiento).
-    # 2. O tocaba el fondo y de repente apareció una nueva pieza (len(xs) > 4).
+
     if frames_cayo >= 5 or (frames_cayo > 0 and len(xs) > 4):
-        # Usamos la última pieza válida conocida (exactamente 4 bloques)
         tablero_fijo = np.logical_or(tablero_fijo, ultima_pieza_valida).astype(np.uint8)
         
          # Limpiar matemáticamente las líneas completas en tablero_fijo para adelantarnos a la animación

@@ -40,12 +40,13 @@ class AgenteTetris:
 
     """ CONSTRUCTOR """
     def __init__(self, pesos):
+        # Pesos obtenidos del genético
         if pesos is None:
             self.pesos = {
-                "lineas": 10,
-                "altura": 0.5,
-                "huecos": 5,
-                "rugosidad": 0.3
+                "lineas": 12.7885,
+                "altura": 0.1251,
+                "huecos": 5.5006,
+                "rugosidad": 1.1161
             }
         else:
             self.pesos = pesos
